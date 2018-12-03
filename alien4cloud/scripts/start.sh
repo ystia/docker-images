@@ -7,7 +7,7 @@ else
 
 
 if [ -z "${NB_RETRY}" ]; then
-    NB_RETRY=15 ;
+    NB_RETRY=25 ;
 fi
 if [ -z "${PERIOD_SECOND}" ]; then
     PERIOD_SECOND=5 ;

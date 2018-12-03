@@ -12,4 +12,4 @@ For example, if your Yorc server IP adress is *11.22.33.44* and is configured to
 ```
 docker run -d --name A4C -p 8088:8088 -e YORC_HOST=11.22.33.44 -e YORC_PORT=8888 ystia/alien4cloud
 ```
-The default number of retry (15 sec) and delay (5 sec) is habitually adequate but you are encountering issues, you can set them manualy through environment variables **NB_RETRY** and **PERIOD_SECOND**
+The default number of retry (25) and delay (5 sec) is habitually adequate but you are encountering issues, you can set them manualy through environment variables **NB_RETRY** and **PERIOD_SECOND**
