@@ -19,6 +19,7 @@ a4c_pid=$! ;
 orch_created=false ;
 orch_configured=false ;
 orch_enabled=false ;
+location_created_and_configured=false ;
 
 for i in $(seq 1 $NB_RETRY); do
     if  [ "$orch_created" = true ] && [ "$orch_configured" = true ] && [ "$orch_enabled" = true ]; then
@@ -49,6 +50,14 @@ for i in $(seq 1 $NB_RETRY); do
         if [ $? -eq 0 ]; then echo "$(date -u +"%Y-%m-%d %H:%M:%S") INFO  Script:Orchestrator enabled.";
             orch_enabled=true ;
         else echo "$(date -u +"%Y-%m-%d %H:%M:%S") WARN  Script:Not able to enable orchestrator." ;
+        fi
+    fi
+
+    if [ "$location_created_and_configured" = false ] && [ "$orch_enabled" = true ]; then
+        bash ./create_config_location.bash
+        if [ $? -eq 0 ]; then echo "$(date -u +"%Y-%m-%d %H:%M:%S") INFO  Script:Location kubernetes created and configured.";
+            location_created_and_configured=true ;
+        else echo "$(date -u +"%Y-%m-%d %H:%M:%S") WARN  Script:Not able to create and configure kubernetes location." ;
         fi
     fi
     
