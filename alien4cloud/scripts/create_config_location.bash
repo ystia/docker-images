@@ -133,7 +133,7 @@ for K in "${!ressources[@]}"; do
                 --header 'Content-Type: application/json' \
                 --cookie cookies.a4c \
                 --silent \
-                --data "{\"archiveName\": \"org.alien4cloud.kubernetes.api\", \"archiveVersion\": \"2.1.0-SM7\", \"resourceName\": \"$K\", \"resourceType\": \"${ressources[$K]}\"}"`
+                --data "{\"archiveName\": \"org.alien4cloud.kubernetes.api\", \"archiveVersion\": \"${ALIEN_VERSION}\", \"resourceName\": \"$K\", \"resourceType\": \"${ressources[$K]}\"}"`
     res=$?
     if [ $res -ne 0 ]
     then
