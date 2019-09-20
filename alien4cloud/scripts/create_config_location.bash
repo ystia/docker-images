@@ -8,7 +8,7 @@ a4cURL="http://localhost:8088"
 userName="admin"
 password="admin"
 infraType="Kubernetes"
-locationName="K8's"
+locationName="K8S"
 usage() {
     echo ""
     echo "Usage:"
@@ -119,15 +119,15 @@ then
     exit 1
 fi
 
-declare -A ressources=( ["K8'S Deployment"]="org.alien4cloud.kubernetes.api.types.Deployment" 
+declare -A ressources=( ["K8'S Deployment"]="org.alien4cloud.kubernetes.api.types.Deployment"
                         ["K8'S Service"]="org.alien4cloud.kubernetes.api.types.Service"
                         ["K8'S Container"]="org.alien4cloud.kubernetes.api.types.Container"
-                        ["K8'S Job"]="org.alien4cloud.kubernetes.api.types.Job" 
+                        ["K8'S Job"]="org.alien4cloud.kubernetes.api.types.Job"
                         ["K8'S EmptyDir"]="org.alien4cloud.kubernetes.api.types.volume.EmptyDirVolumeSource" )
 
 # Create a K8S Deployement on-demand resource
-for K in "${!ressources[@]}"; do 
-    
+for K in "${!ressources[@]}"; do
+
     response=`curl --request POST \
                 --url $a4cURL/rest/latest/orchestrators/$yorcID/locations/$locationID/resources  \
                 --header 'Content-Type: application/json' \

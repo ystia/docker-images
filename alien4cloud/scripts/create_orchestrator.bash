@@ -83,7 +83,7 @@ response=`curl --request POST \
                --cookie cookies.a4c \
                --silent \
                -f \
-               --data "{\"name\": \"Yorc\", \"pluginId\": \"alien4cloud-yorc-plugin\", \"pluginBean\": \"yorc-orchestrator-factory\"}"`
+               --data "{\"name\": \"Yorc\", \"pluginId\": \"alien4cloud-yorc-provider\", \"pluginBean\": \"yorc-orchestrator-factory\"}"`
 
 res=$?
 if [ $res -ne 0 ]
