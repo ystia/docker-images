@@ -1,8 +1,8 @@
-FROM alien4cloud/alien4cloud:2.2.0
+FROM alien4cloud/alien4cloud:3.3.0
 
-ENV ALIEN_VERSION 2.2.0
+ENV ALIEN_VERSION 3.3.0
 
-COPY --chown=a4c:a4c scripts /var/a4c/
-RUN chown -R a4c:a4c /var/a4c
+COPY --chown=a4c:a4c scripts /opt/a4c/
+RUN chown -R a4c:a4c /opt/a4c
 
-ENTRYPOINT cd /var/a4c/ && ./start.sh
+ENTRYPOINT cd /opt/a4c/ && ./start.sh
